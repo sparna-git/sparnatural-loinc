@@ -103,8 +103,12 @@
           <div class="col-md-6">
             <div style="text-align:right;">
               <span style="font-size:90%; font-style: italic;"> 
-                <a id="endpoint" href="https://smt.esante.gouv.fr/api/sparql">Service SPARQL du SMT</a> 
-              </span> | <a href="https://docs.google.com/spreadsheets/d/1nRmgH8GQekHX72DbnvJl1dJZ3A-z-esUajEA2hJ2_z4">Configuration</a>
+                <a id="endpoint" href="http://graphdb.sparna.fr/repositories/loinc">http://graphdb.sparna.fr/repositories/loinc</a> 
+              </span>
+              | 
+              <a href="https://docs.google.com/spreadsheets/d/1nRmgH8GQekHX72DbnvJl1dJZ3A-z-esUajEA2hJ2_z4">Configuration</a>
+              | 
+              <a href="https://smt.esante.gouv.fr/explorer-les-concepts/terminologie-loinc-international/?treeViewType=complete">Navigateur SMT</a>
             </div>
           </div>
 
@@ -120,10 +124,10 @@
 
           <spar-natural 
             src="https://xls2rdf.sparna.fr/rest/convert?noPostProcessings=true&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1nRmgH8GQekHX72DbnvJl1dJZ3A-z-esUajEA2hJ2_z4%2Fexport%3Fformat%3Dxlsx"
-            endpoint="https://smt.esante.gouv.fr/api/sparql"
-            prefixes="skos:http://www.w3.org/2004/02/skos/core# dct:http://purl.org/dc/terms/"
+            endpoint="http://graphdb.sparna.fr/repositories/loinc"
+            prefixes="property:http://loinc.org/property/ rdfs:http://www.w3.org/2000/01/rdf-schema# loinc:http://loinc.org/ontology/core#"
             lang="fr"
-            defaultLang="fr"
+            defaultLang="en"
             distinct="true"
             debug="true"
           ></spar-natural>
@@ -452,6 +456,14 @@
     bindSparnaturalWithYasrPlugins(sparnatural, yasr);
     // binds Sparnatural with itself for the query execution and integration with yasqe and yasr
     bindSparnaturalWithItself(sparnatural, yasqe, yasr);
+
+    yasr.plugins["TableX"].config.uriHrefAdapter = function(uri) {
+      if(uri.startsWith("http://loinc.org/")) {
+        return "https://smt.esante.gouv.fr/explorer-les-concepts/terminologie-loinc-international/?treeViewType=complete&concept=" + encodeURI(uri);
+      } else {
+        return uri;
+      }
+    };
 
 
     // load sample queries
