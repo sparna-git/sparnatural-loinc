@@ -103,7 +103,7 @@
           <div class="col-md-6">
             <div style="text-align:right;">
               <span style="font-size:90%; font-style: italic;"> 
-                <a id="endpoint" href="https://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2Fgraphdb.sparna.fr%2Frepositories%2Floinc">http://graphdb.sparna.fr/repositories/loinc</a> 
+                <a id="endpoint" href="https://smt.esante.gouv.fr/api/sparql">https://smt.esante.gouv.fr/api/sparql</a> 
               </span>
               | 
               <a href="https://docs.google.com/spreadsheets/d/1nRmgH8GQekHX72DbnvJl1dJZ3A-z-esUajEA2hJ2_z4">Configuration</a>
@@ -124,8 +124,8 @@
 
           <spar-natural 
             src="https://xls2rdf.sparna.fr/rest/convert?noPostProcessings=true&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1nRmgH8GQekHX72DbnvJl1dJZ3A-z-esUajEA2hJ2_z4%2Fexport%3Fformat%3Dxlsx"
-            endpoint="https://proxy.sparnatural.eu/sparql-proxy/sparql?endpoint=http%3A%2F%2Fgraphdb.sparna.fr%2Frepositories%2Floinc"
-            prefixes="property:http://loinc.org/property/ rdfs:http://www.w3.org/2000/01/rdf-schema# loinc:http://loinc.org/ontology/core#"
+            endpoint="https://smt.esante.gouv.fr/api/sparql?default-graph-iri=http%3A%2F%2Fdata.esante.gouv.fr%2Fgraph%2Fterminologie-loinc-international"
+            prefixes="property:http://loinc.org/property/ rdfs:http://www.w3.org/2000/01/rdf-schema# loinc:http://loinc.org/ontology/core# skos:http://www.w3.org/2004/02/skos/core#"
             lang="fr"
             defaultLang="en"
             distinct="true"
@@ -477,7 +477,7 @@
         qs.forEach(q => {
           $('#select-examples').append($('<option>', { 
             value: queries.length,
-            text : q.label_en
+            text : q.label_fr
           }));
           queries[queries.length] = q;
         });

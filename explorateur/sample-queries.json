@@ -1,1557 +1,459 @@
 [
   {
-    "label_en" : "Q1 All magnetic tapes with their identifier and title of the resource",
-    "label_de" : "Q1 Alle Magnetbänder im Feld Trägertyp und deren Signatur und Titel",
+    "label_fr" : "Codes LOINC avec informations unité UCUM et référentiel conversion  si existants",
     "query" : {
       "distinct": true,
       "variables": [
         {
           "termType": "Variable",
-          "value": "Identifier"
+          "value": "CodeLabo"
         },
         {
           "termType": "Variable",
-          "value": "Identifier_structured"
+          "value": "ID"
         },
         {
           "termType": "Variable",
-          "value": "Instantiation"
+          "value": "Libelle"
         },
         {
           "termType": "Variable",
-          "value": "RecordResource"
-        }
-      ],
-      "order": "asc",
-      "branches": [
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasCarrierType_rec",
-            "o": "CarrierType_2",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/CarrierType",
-            "values": [
-              {
-                "label": "magnetic tape (2858)",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://vocab.performing-arts.ch/fvodj"
-                }
-              }
-            ]
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-            "o": "Identifier",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-            "o": "MainIdentifier_10",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "MainIdentifier_10",
-                "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                "o": "Identifier_structured",
-                "sType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-            "o": "RecordResource",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        }
-      ]
-    }
-  },
-  {
-    "label_en" : "Q2 All U-matic tapes with their identifier and title of the resource",
-    "label_de" : "Q2 Alle Umatic Kassetten im Feld Trägertyp und deren Signatur und Titel",
-    "query" : {
-      "distinct": true,
-      "variables": [
-        {
-          "termType": "Variable",
-          "value": "Identifier"
+          "value": "Unite"
         },
         {
           "termType": "Variable",
-          "value": "Identifier_structured"
+          "value": "ConvertibleVers"
         },
         {
           "termType": "Variable",
-          "value": "Instantiation"
+          "value": "Facteur"
         },
         {
           "termType": "Variable",
-          "value": "RecordResource"
-        }
-      ],
-      "order": "asc",
-      "branches": [
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasCarrierType_rec",
-            "o": "CarrierType_2",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/CarrierType",
-            "values": [
-              {
-                "label": "U-matic (37)",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://vocab.performing-arts.ch/fvskn"
-                }
-              }
-            ]
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-            "o": "Identifier",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-            "o": "MainIdentifier_10",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "MainIdentifier_10",
-                "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                "o": "Identifier_structured",
-                "sType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-            "o": "RecordResource",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        }
-      ]
-    }
-  },
-  {
-    "label_en" : "Q3 All VHS cassette in Hallerstrasse with status «archival master»",
-    "label_de" : "Q3 Alle VHS Kassetten an der Hallerstrasse mit dem Archivstatus «archival master»",
-    "query" : {
-      "distinct": true,
-      "variables": [
-        {
-          "termType": "Variable",
-          "value": "Identifier"
-        },
-        {
-          "termType": "Variable",
-          "value": "Identifier_structured"
-        },
-        {
-          "termType": "Variable",
-          "value": "Instantiation"
-        },
-        {
-          "termType": "Variable",
-          "value": "CarrierType"
-        },
-        {
-          "termType": "Variable",
-          "value": "ArchivalPlace"
-        },
-        {
-          "termType": "Variable",
-          "value": "RecordResource"
-        }
-      ],
-      "order": "asc",
-      "branches": [
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasOrHadLocation_rec",
-            "o": "ArchivalPlace",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/ArchivalPlace",
-            "values": [
-              {
-                "label": "Hallerstrasse 6, 3012 Bern (1619)",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://data.performing-arts.ch/p/43e62475-9d1d-4b19-8fc2-e0ef70e3a1e4"
-                }
-              }
-            ]
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasCarrierType_rec",
-            "o": "CarrierType",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/CarrierType",
-            "values": [
-              {
-                "label": "VHS (1379)",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://vocab.performing-arts.ch/fvywh"
-                }
-              }
-            ]
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasArchivalStatus",
-            "o": "PreservationState_6",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/PreservationState",
-            "values": [
-              {
-                "label": "archival master (8375)",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://vocab.performing-arts.ch/asarm"
-                }
-              }
-            ]
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-            "o": "Identifier",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-            "o": "Identifier_10",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Identifier",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "Identifier_10",
-                "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                "o": "Identifier_structured",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Identifier",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-            "o": "RecordResource",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        }
-      ]
-    }
-  },
-  {
-    "label_en" : "Q4 All Instantiations at LTO with format mkv and status «archival master»",
-    "label_de" : "Q4 Alle Instantiationen auf LTO mit dem Format mkv und dem Archivstatus «archival master»",
-    "query" : {
-      "distinct": true,
-      "variables": [
-        {
-          "termType": "Variable",
-          "value": "Identifier"
-        },
-        {
-          "termType": "Variable",
-          "value": "Identifier_structured"
-        },
-        {
-          "termType": "Variable",
-          "value": "RecordResource"
-        },
-        {
-          "termType": "Variable",
-          "value": "Instantiation"
-        },
-        {
-          "termType": "Variable",
-          "value": "ArchivalPlace"
-        },
-        {
-          "termType": "Variable",
-          "value": "PreservationState"
-        },
-        {
-          "termType": "Variable",
-          "value": "ContainerFormat"
+          "value": "UniteFacteur"
         }
       ],
       "order": null,
       "branches": [
         {
           "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasOrHadLocation_rec",
-            "o": "ArchivalPlace",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/ArchivalPlace",
-            "values": [
-              {
-                "label": "Strongbox LTO (70)",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://data.performing-arts.ch/p/e28c9d0b-9a91-408c-ab0c-2164ac46dbd7"
-                }
-              }
-            ]
-          },
-          "children": []
+            "s": "CodeLabo",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_notation",
+            "o": "ID",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#ID",
+            "criterias": []
+          }
         },
         {
           "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasArchivalStatus_rec",
-            "o": "PreservationState",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/PreservationState",
-            "values": [
-              {
-                "label": "preservation copy",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://vocab.performing-arts.ch/asprc"
-                }
-              }
-            ]
-          },
-          "children": []
+            "s": "CodeLabo",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_label",
+            "o": "Libelle",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Label",
+            "criterias": []
+          }
         },
         {
           "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_includedIn",
-            "o": "File_6",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/File",
-            "values": []
+            "s": "CodeLabo",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_unite-ucum",
+            "o": "Unite",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Unit",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "CodeLabo",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_conversion",
+            "o": "Conversion_8",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Conversion",
+            "criterias": []
           },
           "children": [
             {
               "line": {
-                "s": "File_6",
-                "p": "http://shapes.performing-arts.ch/instantiations/File_hasFormat",
-                "o": "ContainerFormat",
-                "sType": "http://shapes.performing-arts.ch/instantiations/File",
-                "oType": "http://shapes.performing-arts.ch/instantiations/ContainerFormat",
-                "values": [
-                  {
-                    "label": "Matroska (767)",
-                    "rdfTerm": {
-                      "type": "uri",
-                      "value": "http://vocab.performing-arts.ch/cfmkv"
-                    }
+                "s": "Conversion_8",
+                "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_conversionTargetCode",
+                "o": "ConvertibleVers",
+                "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Conversion",
+                "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code",
+                "criterias": []
+              }
+            },
+            {
+              "line": {
+                "s": "Conversion_8",
+                "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_conversionFactor",
+                "o": "Facteur",
+                "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Conversion",
+                "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Factor",
+                "criterias": []
+              }
+            },
+            {
+              "line": {
+                "s": "Conversion_8",
+                "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_conversionTargetUnit",
+                "o": "UniteFacteur",
+                "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Conversion",
+                "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#UnitUnclassified",
+                "criterias": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "label_fr" : "Liste des codes LOINC modifiés  dans les version 2.79 et 2.80",
+    "query" : {
+      "distinct": true,
+      "variables": [
+        {
+          "termType": "Variable",
+          "value": "CodeLaboratory"
+        },
+        {
+          "termType": "Variable",
+          "value": "ID"
+        },
+        {
+          "termType": "Variable",
+          "value": "Label"
+        },
+        {
+          "termType": "Variable",
+          "value": "TypeUtilisation"
+        },
+        {
+          "termType": "Variable",
+          "value": "Status"
+        },
+        {
+          "termType": "Variable",
+          "value": "VersionCreation"
+        }
+      ],
+      "order": null,
+      "branches": [
+        {
+          "line": {
+            "s": "CodeLaboratory",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_notation",
+            "o": "ID",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#ID",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "CodeLaboratory",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_label",
+            "o": "Label",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Label",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "CodeLaboratory",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_ORDER_OBS",
+            "o": "TypeUtilisation",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#TermIntendedUse",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "CodeLaboratory",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_VersionLastChanged",
+            "o": "Version_10",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Version",
+            "criterias": [
+              {
+                "label": "2.79",
+                "criteria": {
+                  "search": "2.79"
+                }
+              },
+              {
+                "label": "2.80",
+                "criteria": {
+                  "search": "2.80"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "line": {
+            "s": "CodeLaboratory",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_STATUS",
+            "o": "Status",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#TermStatus",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "CodeLaboratory",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_VersionFirstReleased",
+            "o": "VersionCreation",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Version",
+            "criterias": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "label_fr" : "Liste des codes de Biochimie actif ou discouraged ou à l’essai (CHEM + CHAL)",
+    "query" : {
+      "distinct": true,
+      "variables": [
+        {
+          "termType": "Variable",
+          "value": "CodeLabo"
+        },
+        {
+          "termType": "Variable",
+          "value": "ID"
+        },
+        {
+          "termType": "Variable",
+          "value": "Label"
+        },
+        {
+          "termType": "Variable",
+          "value": "ClasseCode"
+        },
+        {
+          "termType": "Variable",
+          "value": "Statut"
+        }
+      ],
+      "order": null,
+      "branches": [
+        {
+          "line": {
+            "s": "CodeLabo",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_notation",
+            "o": "ID",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#ID",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "CodeLabo",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_label",
+            "o": "Label",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Label",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "CodeLabo",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory_subClassOf",
+            "o": "ClasseCode",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#ClasseCodeLaboratory",
+            "criterias": [
+              {
+                "label": "CHEM",
+                "criteria": {
+                  "rdfTerm": {
+                    "type": "uri",
+                    "value": "http://loinc.org/LP7786-9"
                   }
-                ]
+                }
               },
-              "children": []
-            }
-          ]
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-            "o": "Identifier",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-            "o": "MainIdentifier_12",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "MainIdentifier_12",
-                "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                "o": "Identifier_structured",
-                "sType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-            "o": "RecordResource",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        }
-      ]
-    }
-  },
-  {
-    "label_en" : "Q5 All Instantiations in fonds 'Jean Deroc' with status «archival master», with identifiers, conditions, and title",
-    "label_de" : "Q5 Alle Instantiationen in Bestand 'Jean Deroc' mit dem Archivstatus «archival master» mit Angabe zu Zustand, Record und Standort",
-    "query" : {
-      "distinct": true,
-      "variables": [
-        {
-          "termType": "Variable",
-          "value": "Identifier"
-        },
-        {
-          "termType": "Variable",
-          "value": "Identifier_structured"
-        },
-        {
-          "termType": "Variable",
-          "value": "Instantiation"
-        },
-        {
-          "termType": "Variable",
-          "value": "RecordResource"
-        },
-        {
-          "termType": "Variable",
-          "value": "Condition"
-        }
-      ],
-      "order": "asc",
-      "branches": [
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-            "o": "RecordResource_2",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "RecordResource_2",
-                "p": "http://shapes.performing-arts.ch/sparnatural/RecordResource_optional_isOrWasConstituentOf_zeroOrMore_isOrWasIncludedIn",
-                "o": "Fonds_4",
-                "sType": "http://shapes.performing-arts.ch/collections/RecordResource",
-                "oType": "http://shapes.performing-arts.ch/sparnatural/Fonds",
-                "values": [
-                  {
-                    "label": "Fonds Jean Deroc (296)",
-                    "rdfTerm": {
-                      "type": "uri",
-                      "value": "http://data.performing-arts.ch/r/ece22937-e6db-4bb4-98c9-d90af1b99d88"
-                    }
-                  }
-                ]
-              },
-              "children": []
-            }
-          ]
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasArchivalStatus",
-            "o": "PreservationState_6",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/PreservationState",
-            "values": [
               {
-                "label": "archival master (8375)",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://vocab.performing-arts.ch/asarm"
+                "label": "CHAL",
+                "criteria": {
+                  "rdfTerm": {
+                    "type": "uri",
+                    "value": "http://loinc.org/LP7784-4"
+                  }
                 }
               }
             ]
-          },
-          "children": []
+          }
         },
         {
           "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasCondition",
-            "o": "Condition",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Condition",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-            "o": "Identifier",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-            "o": "MainIdentifier_12",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "MainIdentifier_12",
-                "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                "o": "Identifier_structured",
-                "sType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-            "o": "RecordResource",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        }
-      ]
-    }
-  },
-  {
-    "label_en" : "Q6 All Files with Standard 'secam', with their location",
-    "label_de" : "Q6 Alle Files mit dem Standard 'secam' suchen. Angaben zu Standort",
-    "query" : {
-      "distinct": true,
-      "variables": [
-        {
-          "termType": "Variable",
-          "value": "File"
-        },
-        {
-          "termType": "Variable",
-          "value": "ArchivalPlace"
-        }
-      ],
-      "order": null,
-      "branches": [
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_hasStandard",
-            "o": "Standard_2",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Standard",
-            "values": [
+            "s": "CodeLabo",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_STATUS",
+            "o": "Statut",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#TermStatus",
+            "criterias": [
               {
-                "label": "SECAM (1)",
-                "rdfTerm": {
-                  "type": "uri",
-                  "value": "http://vocab.performing-arts.ch/bsscm"
+                "label": "actif",
+                "criteria": {
+                  "rdfTerm": {
+                    "type": "uri",
+                    "value": "http://loinc.org/ontology/core#TermStatus-ACTIVE"
+                  }
+                }
+              },
+              {
+                "label": "découragé",
+                "criteria": {
+                  "rdfTerm": {
+                    "type": "uri",
+                    "value": "http://loinc.org/ontology/core#TermStatus-DISCOURAGED"
+                  }
+                }
+              },
+              {
+                "label": "à l",
+                "criteria": {
+                  "rdfTerm": {
+                    "type": "uri",
+                    "value": "http://loinc.org/ontology/core#TermStatus-TRIAL"
+                  }
                 }
               }
             ]
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_isIncludedIn",
-            "o": "Representation_4",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Representation",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "Representation_4",
-                "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadLocation",
-                "o": "ArchivalPlace",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Representation",
-                "oType": "http://shapes.performing-arts.ch/collections/ArchivalPlace",
-                "values": []
-              },
-              "children": []
-            }
-          ]
+          }
         }
       ]
     }
   },
   {
-    "label_en" : "Q7 In Fonds 'Jean Deroc', all Files with status 'preservation copy', with their video format and container format",
-    "label_de" : "Q7 In Bestand 'Jean Deroc' alle Files mit dem Archivstatus 'preservation copy' suchen, dazu Angaben zu Videoformat und Containerformat",
+    "label_fr" : "Codes LOINC de laboratoire créée dans les versions 2.79 ou 2.80 et répertoriant leur component, property, system et method (optionnel)",
     "query" : {
       "distinct": true,
       "variables": [
         {
           "termType": "Variable",
-          "value": "File"
+          "value": "Code_LOINC"
         },
         {
           "termType": "Variable",
-          "value": "Instantiation"
+          "value": "ID_LOINC"
         },
         {
           "termType": "Variable",
-          "value": "Identifier"
+          "value": "Label"
         },
         {
           "termType": "Variable",
-          "value": "Identifier_structured"
+          "value": "Component"
         },
         {
           "termType": "Variable",
-          "value": "RecordResource"
+          "value": "Property"
         },
         {
           "termType": "Variable",
-          "value": "PreservationState"
+          "value": "System"
         },
         {
           "termType": "Variable",
-          "value": "VideoFormat"
-        },
-        {
-          "termType": "Variable",
-          "value": "ContainerFormat"
+          "value": "Method"
         }
       ],
       "order": null,
       "branches": [
         {
           "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_isIncludedIn",
-            "o": "Instantiation",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Representation",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "Instantiation",
-                "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-                "o": "RecordResource",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Representation",
-                "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-                "values": []
-              },
-              "children": [
-                {
-                  "line": {
-                    "s": "RecordResource",
-                    "p": "http://shapes.performing-arts.ch/sparnatural/RecordResource_optional_isOrWasConstituentOf_zeroOrMore_isOrWasIncludedIn",
-                    "o": "Fonds_6",
-                    "sType": "http://shapes.performing-arts.ch/collections/RecordResource",
-                    "oType": "http://shapes.performing-arts.ch/sparnatural/Fonds",
-                    "values": [
-                      {
-                        "label": "Fonds Jean Deroc (296)",
-                        "rdfTerm": {
-                          "type": "uri",
-                          "value": "http://data.performing-arts.ch/r/ece22937-e6db-4bb4-98c9-d90af1b99d88"
-                        }
-                      }
-                    ]
-                  },
-                  "children": []
+            "s": "Code_LOINC",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_notation",
+            "o": "ID_LOINC",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#ID",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "Code_LOINC",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_label",
+            "o": "Label",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Label",
+            "criterias": []
+          }
+        },
+        {
+          "line": {
+            "s": "Code_LOINC",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_VersionFirstReleased",
+            "o": "Version_6",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Version",
+            "criterias": [
+              {
+                "label": "2.79",
+                "criteria": {
+                  "search": "2.79"
                 }
-              ]
-            },
-            {
-              "line": {
-                "s": "Instantiation",
-                "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasArchivalStatus_rec",
-                "o": "PreservationState",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Representation",
-                "oType": "http://shapes.performing-arts.ch/instantiations/PreservationState",
-                "values": [
-                  {
-                    "label": "preservation copy",
-                    "rdfTerm": {
-                      "type": "uri",
-                      "value": "http://vocab.performing-arts.ch/asprc"
-                    }
-                  }
-                ]
               },
-              "children": []
-            },
-            {
-              "line": {
-                "s": "Instantiation",
-                "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-                "o": "Identifier",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Representation",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            },
-            {
-              "line": {
-                "s": "Instantiation",
-                "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-                "o": "MainIdentifier_16",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Representation",
-                "oType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                "values": []
-              },
-              "children": [
-                {
-                  "line": {
-                    "s": "MainIdentifier_16",
-                    "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                    "o": "Identifier_structured",
-                    "sType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                    "oType": "http://special/Z_Text",
-                    "values": []
-                  },
-                  "children": [],
-                  "optional": true
+              {
+                "label": "2.80",
+                "criteria": {
+                  "search": "2.80"
                 }
-              ],
-              "optional": true
-            }
-          ]
+              }
+            ]
+          }
         },
         {
           "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_hasFormat",
-            "o": "VideoFormat",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/VideoFormat",
-            "values": []
-          },
-          "children": [],
-          "optional": true
+            "s": "Code_LOINC",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_COMPONENT",
+            "o": "Component",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#COMPONENT",
+            "criterias": []
+          }
         },
         {
           "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_hasFormat",
-            "o": "ContainerFormat",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/ContainerFormat",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        }
-      ]
-    }
-  },
-  {
-    "label_en" : "Q8 : Query Schläpfer (all Instantiations in this Fonds)",
-    "label_de" : "Q8 : Query Schläpfer (all Instantiations in this Fonds)",
-    "query": {
-      "distinct": true,
-      "variables": [
-        {
-          "termType": "Variable",
-          "value": "instantiation"
-        },
-        {
-          "termType": "Variable",
-          "value": "record_name"
-        },
-        {
-          "termType": "Variable",
-          "value": "status"
-        },
-        {
-          "termType": "Variable",
-          "value": "cote_v1"
-        },
-        {
-          "termType": "Variable",
-          "value": "cote_v2"
-        },
-        {
-          "termType": "Variable",
-          "value": "carrier_type"
-        },
-        {
-          "termType": "Variable",
-          "value": "duration"
-        },
-        {
-          "termType": "Variable",
-          "value": "video_format"
-        },
-        {
-          "termType": "Variable",
-          "value": "container_format"
-        },
-        {
-          "termType": "Variable",
-          "value": "file_size"
-        }
-      ],
-      "order": null,
-      "branches": [
-        {
-          "line": {
-            "s": "instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-            "o": "record_name",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "record_name",
-                "p": "http://shapes.performing-arts.ch/sparnatural/RecordResource_optional_isOrWasConstituentOf_zeroOrMore_isOrWasIncludedIn",
-                "o": "Fonds_5",
-                "sType": "http://shapes.performing-arts.ch/collections/RecordResource",
-                "oType": "http://shapes.performing-arts.ch/sparnatural/Fonds",
-                "values": [
-                  {
-                    "label": "Bestand Schläpfer, Martin (100)",
-                    "rdfTerm": {
-                      "type": "uri",
-                      "value": "http://data.performing-arts.ch/r/2073e44f-1595-4583-b8e9-c404458e6b6e"
-                    }
-                  }
-                ]
-              },
-              "children": []
-            }
-          ]
+            "s": "Code_LOINC",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_PROPERTY",
+            "o": "Property",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#PROPERTY",
+            "criterias": []
+          }
         },
         {
           "line": {
-            "s": "instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasArchivalStatus",
-            "o": "status",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/PreservationState",
-            "values": []
-          },
-          "children": [],
-          "optional": true
+            "s": "Code_LOINC",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_SYSTEM",
+            "o": "System",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#SYSTEM",
+            "criterias": []
+          }
         },
         {
           "line": {
-            "s": "instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-            "o": "cote_v1",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
+            "s": "Code_LOINC",
+            "p": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#Code_METHOD_TYP",
+            "o": "Method",
+            "sType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#CodeLaboratory",
+            "oType": "https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#METHOD",
+            "criterias": []
           },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-            "o": "MainIdentifier_12",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "MainIdentifier_12",
-                "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                "o": "cote_v2",
-                "sType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasCarrierType",
-            "o": "carrier_type",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/CarrierType",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "instantiation",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_duration",
-            "o": "duration",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "instantiation",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_includedIn",
-            "o": "File_22",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/File",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "File_22",
-                "p": "http://shapes.performing-arts.ch/instantiations/File_hasFormat",
-                "o": "container_format",
-                "sType": "http://shapes.performing-arts.ch/instantiations/File",
-                "oType": "http://shapes.performing-arts.ch/instantiations/ContainerFormat",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            },
-            {
-              "line": {
-                "s": "File_22",
-                "p": "http://shapes.performing-arts.ch/instantiations/File_hasFormat",
-                "o": "video_format",
-                "sType": "http://shapes.performing-arts.ch/instantiations/File",
-                "oType": "http://shapes.performing-arts.ch/instantiations/VideoFormat",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            },
-            {
-              "line": {
-                "s": "File_22",
-                "p": "http://shapes.performing-arts.ch/instantiations/File_size",
-                "o": "file_size",
-                "sType": "http://shapes.performing-arts.ch/instantiations/File",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
-          "optional": true
-        }
-      ]
-    }
-  },
-  {
-    "label_en" : "File : query for the simple form",
-    "label_de" : "File : query for the simple form",
-    "query" : {
-      "distinct": true,
-      "variables": [
-        {
-          "termType": "Variable",
-          "value": "File"
-        },
-        {
-          "termType": "Variable",
-          "value": "ContainerFormat"
-        },
-        {
-          "termType": "Variable",
-          "value": "VideoFormat"
-        },
-        {
-          "termType": "Variable",
-          "value": "AudioFormat"
-        },
-        {
-          "termType": "Variable",
-          "value": "Standard"
-        },
-        {
-          "termType": "Variable",
-          "value": "Size"
-        },
-        {
-          "termType": "Variable",
-          "value": "Instantiation"
-        },
-        {
-          "termType": "Variable",
-          "value": "Cote1"
-        },
-        {
-          "termType": "Variable",
-          "value": "Cote2"
-        },
-        {
-          "termType": "Variable",
-          "value": "RecordResource"
-        },
-        {
-          "termType": "Variable",
-          "value": "Fonds"
-        }
-      ],
-      "order": null,
-      "branches": [
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_originalName",
-            "o": "Z_Text_2",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_hasFormat",
-            "o": "VideoFormat",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/VideoFormat",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_hasFormat",
-            "o": "AudioFormat",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/AudioFormat",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_hasFormat",
-            "o": "ContainerFormat",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/ContainerFormat",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_isIncludedIn",
-            "o": "Instantiation",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Representation",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "Instantiation",
-                "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-                "o": "RecordResource",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Representation",
-                "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-                "values": []
-              },
-              "children": [
-                {
-                  "line": {
-                    "s": "RecordResource",
-                    "p": "http://shapes.performing-arts.ch/sparnatural/RecordResource_optional_isOrWasConstituentOf_zeroOrMore_isOrWasIncludedIn",
-                    "o": "Fonds",
-                    "sType": "http://shapes.performing-arts.ch/collections/RecordResource",
-                    "oType": "http://shapes.performing-arts.ch/sparnatural/Fonds",
-                    "values": []
-                  },
-                  "children": []
-                }
-              ]
-            },
-            {
-              "line": {
-                "s": "Instantiation",
-                "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-                "o": "Cote1",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Representation",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            },
-            {
-              "line": {
-                "s": "Instantiation",
-                "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-                "o": "MainIdentifier_33",
-                "sType": "http://shapes.performing-arts.ch/instantiations/Representation",
-                "oType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                "values": []
-              },
-              "children": [
-                {
-                  "line": {
-                    "s": "MainIdentifier_33",
-                    "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                    "o": "Cote2",
-                    "sType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                    "oType": "http://special/Z_Text",
-                    "values": []
-                  },
-                  "children": [],
-                  "optional": true
-                }
-              ],
-              "optional": true
-            }
-          ]
-        },
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_hasStandard",
-            "o": "Standard",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Standard",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "File",
-            "p": "http://shapes.performing-arts.ch/instantiations/File_size",
-            "o": "Size",
-            "sType": "http://shapes.performing-arts.ch/instantiations/File",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": []
-        }
-      ]
-    }
-  },
-  {
-    "label_en" : "Instantiation : full query",
-    "label_de" : "Instantiation : full query",
-    "query": {
-      "distinct": true,
-      "variables": [
-        {
-          "termType": "Variable",
-          "value": "Instantiation_1"
-        },
-        {
-          "termType": "Variable",
-          "value": "IdentifierLiteral"
-        },
-        {
-          "termType": "Variable",
-          "value": "IdentifierObject"
-        },
-        {
-          "termType": "Variable",
-          "value": "PreservationState"
-        },
-        {
-          "termType": "Variable",
-          "value": "CarrierType"
-        },
-        {
-          "termType": "Variable",
-          "value": "ArchivalPlace"
-        },
-        {
-          "termType": "Variable",
-          "value": "Fonds"
-        },
-        {
-          "termType": "Variable",
-          "value": "Condition"
-        },
-        {
-          "termType": "Variable",
-          "value": "Integrity"
-        },
-        {
-          "termType": "Variable",
-          "value": "VideoDamage"
-        },
-        {
-          "termType": "Variable",
-          "value": "CopyPath"
-        },
-        {
-          "termType": "Variable",
-          "value": "PhysicalUsability"
-        },
-        {
-          "termType": "Variable",
-          "value": "Accessibility"
-        },
-        {
-          "termType": "Variable",
-          "value": "RecordingSystem"
-        },
-        {
-          "termType": "Variable",
-          "value": "History"
-        },
-        {
-          "termType": "Variable",
-          "value": "TypeAcquisition"
-        }
-      ],
-      "order": null,
-      "branches": [
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_identifier",
-            "o": "IdentifierLiteral",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasOrHadIdentifier",
-            "o": "MainIdentifier_4",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "MainIdentifier_4",
-                "p": "http://shapes.performing-arts.ch/instantiations/Identifier_value",
-                "o": "IdentifierObject",
-                "sType": "http://shapes.performing-arts.ch/sparnatural/MainIdentifier",
-                "oType": "http://special/Z_Text",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasArchivalStatus_rec",
-            "o": "PreservationState",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/PreservationState",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasCarrierType_rec",
-            "o": "CarrierType",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/CarrierType",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_hasOrHadLocation_rec",
-            "o": "ArchivalPlace",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/ArchivalPlace",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/sparnatural/Instantiation_inversePath_hasInstantiation",
-            "o": "RecordResource_14",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/RecordResource",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "RecordResource_14",
-                "p": "http://shapes.performing-arts.ch/sparnatural/RecordResource_optional_isOrWasConstituentOf_zeroOrMore_isOrWasIncludedIn",
-                "o": "Fonds",
-                "sType": "http://shapes.performing-arts.ch/collections/RecordResource",
-                "oType": "http://shapes.performing-arts.ch/sparnatural/Fonds",
-                "values": []
-              },
-              "children": []
-            }
-          ]
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasCondition",
-            "o": "Condition",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Condition",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_integrity",
-            "o": "Integrity",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasVideoDamage",
-            "o": "VideoDamage",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/VideoDamage",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasCopyPath",
-            "o": "CopyPath",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasPhysicalUsability",
-            "o": "PhysicalUsability",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/PhysicalUsability",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_hasAccessibility",
-            "o": "Accessibility",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/Accessibility",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_recordingSystem",
-            "o": "RecordingSystem",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/instantiations/RecordingSystem",
-            "values": []
-          },
-          "children": [],
-          "optional": true
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_history",
-            "o": "History",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://special/Z_Text",
-            "values": []
-          },
-          "children": []
-        },
-        {
-          "line": {
-            "s": "Instantiation_1",
-            "p": "http://shapes.performing-arts.ch/instantiations/Instantiation_isAssociatedWithEvent",
-            "o": "Event_34",
-            "sType": "http://shapes.performing-arts.ch/instantiations/Instantiation",
-            "oType": "http://shapes.performing-arts.ch/collections/Event",
-            "values": []
-          },
-          "children": [
-            {
-              "line": {
-                "s": "Event_34",
-                "p": "http://shapes.performing-arts.ch/collections/Event_hasEventType",
-                "o": "TypeAcquisition",
-                "sType": "http://shapes.performing-arts.ch/collections/Event",
-                "oType": "http://special/ZZ_Other",
-                "values": []
-              },
-              "children": [],
-              "optional": true
-            }
-          ],
           "optional": true
         }
       ]
