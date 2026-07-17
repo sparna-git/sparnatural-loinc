@@ -120,10 +120,13 @@
 
         <!-- This is where Sparnatural is inserted -->
         <!-- Config : https://docs.google.com/spreadsheets/d/1ZkgVyfG1rnl3yZALOdxovj7ommoKDn7ieudi7jCwoYw/edit?gid=1175421456#gid=1175421456 -->
+        <!--
+        Live configuration : https://xls2rdf.sparna.fr/rest/convert?noPostProcessings=true&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1nRmgH8GQekHX72DbnvJl1dJZ3A-z-esUajEA2hJ2_z4%2Fexport%3Fformat%3Dxlsx
+        -->
         <div class="row">
 
           <spar-natural 
-            src="https://xls2rdf.sparna.fr/rest/convert?noPostProcessings=true&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1nRmgH8GQekHX72DbnvJl1dJZ3A-z-esUajEA2hJ2_z4%2Fexport%3Fformat%3Dxlsx"
+            src="../configs/sparnatural-config-loinc.ttl"
             endpoint="https://smt.esante.gouv.fr/api/sparql"
             prefixes="property:http://loinc.org/property/ rdfs:http://www.w3.org/2000/01/rdf-schema# loinc:http://loinc.org/ontology/core# skos:http://www.w3.org/2004/02/skos/core#"
             lang="fr"

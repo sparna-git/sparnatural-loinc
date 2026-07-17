@@ -1,0 +1,1103 @@
+@prefix schema: <http://schema.org/> .
+@prefix ans-core: <http://data.esante.gouv.fr/ans/core-property/> .
+@prefix volipi: <http://data.sparna.fr/ontologies/volipi#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix config-core: <http://data.sparna.fr/ontologies/sparnatural-config-core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix property: <http://loinc.org/property/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix shape: <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix loinc-fr: <http://data.esante.gouv.fr/ans/loinc/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix datasources: <http://data.sparna.fr/ontologies/sparnatural-config-datasources#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix PREFIX: <loinc-fr> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+<https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> a
+    owl:Ontology, skos:ConceptScheme;
+  dct:created "2025-12-23T00:00:00.000Z"^^xsd:dateTime;
+  skos:hasTopConcept shape:Code_label_LabelRole, shape:Code_label, shape:Code_ORDER_OBS,
+    shape:Code_STATUS, shape:Code_COMPONENT, shape:Code_PROPERTY, shape:Code_TIME_ASPCT,
+    shape:Code_SYSTEM, shape:Code_SCALE_TYP, shape:Code_METHOD_TYP, shape:Code_notation,
+    shape:Code_altLabel, shape:Code_subClassOf, shape:Code_definition, shape:Code_FORMULA,
+    shape:Code_comparabilite, shape:Code_conversion, shape:Code_SURVEY_QUEST_TEXT, shape:Code_SURVEY_QUEST_SRC,
+    shape:Code_VersionFirstReleased, shape:Code_VersionLastChanged, shape:Code_MAP-TO,
+    shape:Code_STATUS_TEXT, shape:Code_unite-recommandee, shape:Code_unite-ucum, shape:Code_answer-list,
+    shape:Code_EXMPL_ANSWERS, shape:Code_EXTERNAL_COPYRIGHT_NOTICE, shape:Code_EXTERNAL_COPYRIGHT_LINK,
+    shape:AnswerList_Answer, shape:AnswerList_label, shape:Answer_label, shape:CodeLaboratory_subClassOf,
+    shape:CodeClinical_subClassOf, shape:CodeAttachment_subClassOf, shape:CodeSurvey_subClassOf,
+    shape:Part_status, shape:COMPONENT_label, shape:PROPERTY_label, shape:TIME_label,
+    shape:SYSTEM_label, shape:SCALE_label, shape:METHOD_label, shape:ClasseCode_label,
+    shape:TermIntendedUse_label, shape:TermStatus_label, shape:PartStatus_label, shape:Code_conversionTargetCode,
+    shape:Code_conversionFactor, shape:Code_conversionTargetUnit .
+
+shape:Metadata a sh:NodeShape;
+  rdfs:label "Métadonnée"@fr;
+  sh:order 0 .
+
+shape:Code a sh:NodeShape;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Code"@fr;
+  sh:order 1;
+  sh:property shape:Code_label_LabelRole .
+
+shape:CodeLaboratory a sh:NodeShape;
+  sh:target shape:CodeLaboratory-target;
+  sh:node shape:Code;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Code Laboratoire"@fr;
+  sh:property shape:Code_label, shape:Code_ORDER_OBS, shape:Code_STATUS, shape:Code_COMPONENT,
+    shape:Code_PROPERTY, shape:Code_TIME_ASPCT, shape:Code_SYSTEM, shape:Code_SCALE_TYP,
+    shape:Code_METHOD_TYP, shape:Code_notation, shape:Code_altLabel, shape:Code_subClassOf,
+    shape:Code_definition, shape:Code_FORMULA, shape:Code_comparabilite, shape:Code_conversion,
+    shape:Code_VersionFirstReleased, shape:Code_VersionLastChanged, shape:Code_MAP-TO,
+    shape:Code_STATUS_TEXT, shape:Code_unite-recommandee, shape:Code_unite-ucum, shape:Code_answer-list,
+    shape:Code_EXMPL_ANSWERS, shape:Code_EXTERNAL_COPYRIGHT_NOTICE, shape:Code_EXTERNAL_COPYRIGHT_LINK,
+    shape:CodeLaboratory_subClassOf .
+
+shape:CodeLaboratory-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ $this dc:type \"all_Laboratory_Code\" .
+}""" .
+
+shape:CodeClinical a sh:NodeShape;
+  sh:target shape:CodeClinical-target;
+  sh:node shape:Code;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Code Clinique"@fr;
+  sh:property shape:Code_label, shape:Code_ORDER_OBS, shape:Code_STATUS, shape:Code_COMPONENT,
+    shape:Code_PROPERTY, shape:Code_TIME_ASPCT, shape:Code_SYSTEM, shape:Code_SCALE_TYP,
+    shape:Code_METHOD_TYP, shape:Code_notation, shape:Code_altLabel, shape:Code_subClassOf,
+    shape:Code_definition, shape:Code_FORMULA, shape:Code_comparabilite, shape:Code_conversion,
+    shape:Code_SURVEY_QUEST_TEXT, shape:Code_SURVEY_QUEST_SRC, shape:Code_VersionFirstReleased,
+    shape:Code_VersionLastChanged, shape:Code_MAP-TO, shape:Code_STATUS_TEXT, shape:Code_unite-recommandee,
+    shape:Code_unite-ucum, shape:Code_answer-list, shape:Code_EXMPL_ANSWERS, shape:Code_EXTERNAL_COPYRIGHT_NOTICE,
+    shape:Code_EXTERNAL_COPYRIGHT_LINK, shape:CodeClinical_subClassOf .
+
+shape:CodeClinical-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ $this dc:type \"all_Clinical_Code\" .
+}""" .
+
+shape:CodeSurvey a sh:NodeShape;
+  sh:target shape:CodeSurvey-target;
+  sh:node shape:Code;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Code Survey"@fr;
+  sh:property shape:Code_label, shape:Code_ORDER_OBS, shape:Code_STATUS, shape:Code_COMPONENT,
+    shape:Code_PROPERTY, shape:Code_TIME_ASPCT, shape:Code_SYSTEM, shape:Code_SCALE_TYP,
+    shape:Code_METHOD_TYP, shape:Code_notation, shape:Code_altLabel, shape:Code_subClassOf,
+    shape:Code_definition, shape:Code_FORMULA, shape:Code_comparabilite, shape:Code_conversion,
+    shape:Code_SURVEY_QUEST_TEXT, shape:Code_SURVEY_QUEST_SRC, shape:Code_VersionFirstReleased,
+    shape:Code_VersionLastChanged, shape:Code_MAP-TO, shape:Code_STATUS_TEXT, shape:Code_unite-recommandee,
+    shape:Code_unite-ucum, shape:Code_answer-list, shape:Code_EXMPL_ANSWERS, shape:Code_EXTERNAL_COPYRIGHT_NOTICE,
+    shape:Code_EXTERNAL_COPYRIGHT_LINK, shape:CodeSurvey_subClassOf .
+
+shape:CodeSurvey-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ $this dc:type \"all_SurveyInstruments_Code\" .
+}""" .
+
+shape:CodeAttachment a sh:NodeShape;
+  sh:target shape:CodeAttachment-target;
+  sh:node shape:Code;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Code Attachment"@fr;
+  sh:property shape:Code_label, shape:Code_ORDER_OBS, shape:Code_STATUS, shape:Code_COMPONENT,
+    shape:Code_PROPERTY, shape:Code_TIME_ASPCT, shape:Code_SYSTEM, shape:Code_SCALE_TYP,
+    shape:Code_METHOD_TYP, shape:Code_notation, shape:Code_altLabel, shape:Code_subClassOf,
+    shape:Code_definition, shape:Code_FORMULA, shape:Code_comparabilite, shape:Code_conversion,
+    shape:Code_VersionFirstReleased, shape:Code_VersionLastChanged, shape:Code_MAP-TO,
+    shape:Code_STATUS_TEXT, shape:Code_unite-recommandee, shape:Code_unite-ucum, shape:Code_answer-list,
+    shape:Code_EXMPL_ANSWERS, shape:Code_EXTERNAL_COPYRIGHT_NOTICE, shape:Code_EXTERNAL_COPYRIGHT_LINK,
+    shape:CodeAttachment_subClassOf .
+
+shape:CodeAttachment-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ $this dc:type \"all_Attachment_Code\" .
+}""" .
+
+shape:Part a sh:NodeShape;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Part"@fr;
+  sh:order 2;
+  sh:deactivated true;
+  sh:property shape:Part_status .
+
+shape:COMPONENT a sh:NodeShape;
+  sh:target shape:COMPONENT-target;
+  sh:node shape:Part;
+  sh:nodeKind sh:IRI;
+  rdfs:label "COMPONENT"@fr;
+  sh:property shape:COMPONENT_label .
+
+shape:COMPONENT-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this rdfs:subClassOf <http://loinc.org/ontology/core#COMPONENT> .
+}""" .
+
+shape:PROPERTY a sh:NodeShape;
+  sh:target shape:PROPERTY-target;
+  sh:node shape:Part;
+  sh:nodeKind sh:IRI;
+  rdfs:label "PROPERTY"@fr;
+  sh:property shape:PROPERTY_label .
+
+shape:PROPERTY-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this rdfs:subClassOf <http://loinc.org/ontology/core#PROPERTY> .
+}""" .
+
+shape:TIME a sh:NodeShape;
+  sh:target shape:TIME-target;
+  sh:node shape:Part;
+  sh:nodeKind sh:IRI;
+  rdfs:label "TIME"@fr;
+  sh:property shape:TIME_label .
+
+shape:TIME-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this rdfs:subClassOf <http://loinc.org/ontology/core#TIME> .
+}""" .
+
+shape:SYSTEM a sh:NodeShape;
+  sh:target shape:SYSTEM-target;
+  sh:node shape:Part;
+  sh:nodeKind sh:IRI;
+  rdfs:label "SYSTEM"@fr;
+  sh:property shape:SYSTEM_label .
+
+shape:SYSTEM-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this rdfs:subClassOf <http://loinc.org/ontology/core#SYSTEM> .
+}""" .
+
+shape:SCALE a sh:NodeShape;
+  sh:target shape:SCALE-target;
+  sh:node shape:Part;
+  sh:nodeKind sh:IRI;
+  rdfs:label "SCALE"@fr;
+  sh:property shape:SCALE_label .
+
+shape:SCALE-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this rdfs:subClassOf <http://loinc.org/ontology/core#SCALE> .
+}""" .
+
+shape:METHOD a sh:NodeShape;
+  sh:target shape:METHOD-target;
+  sh:node shape:Part;
+  sh:nodeKind sh:IRI;
+  rdfs:label "METHOD"@fr;
+  sh:property shape:METHOD_label .
+
+shape:METHOD-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this rdfs:subClassOf <http://loinc.org/ontology/core#METHOD> .
+}""" .
+
+shape:AnswerList a sh:NodeShape;
+  sh:target shape:AnswerList-target;
+  sh:nodeKind sh:IRI;
+  rdfs:label "AnswerList"@fr;
+  volipi:iconName "fa-thin fa-comments-question-check";
+  sh:deactivated true;
+  sh:property shape:AnswerList_Answer, shape:AnswerList_label .
+
+shape:AnswerList-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this rdfs:subClassOf/rdfs:subClassOf <http://loinc.org/ontology/core#AnswerList> .
+}""" .
+
+shape:Answer a sh:NodeShape;
+  sh:target shape:Answer-target;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Answer"@fr;
+  volipi:iconName "fa-thin fa-comment-check";
+  sh:deactivated true;
+  sh:property shape:Answer_label .
+
+shape:Answer-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this rdfs:subClassOf <http://loinc.org/ontology/core#AnswerString> .
+}""" .
+
+shape:ClasseCodeLaboratory a sh:NodeShape;
+  sh:target shape:ClasseCodeLaboratory-target;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Classe de Code"@fr;
+  volipi:iconName "fa-thin fa-chart-pie-simple";
+  sh:deactivated true;
+  sh:property shape:ClasseCode_label .
+
+shape:ClasseCodeLaboratory-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ # Laboratory
+ $this rdfs:subClassOf <http://loinc.org/LP29693-6> .
+}""" .
+
+shape:ClasseCodeClinical a sh:NodeShape;
+  sh:target shape:ClasseCodeClinical-target;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Classe de Code"@fr;
+  volipi:iconName "fa-thin fa-chart-pie-simple";
+  sh:deactivated true;
+  sh:property shape:ClasseCode_label .
+
+shape:ClasseCodeClinical-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ # Clinical
+ $this rdfs:subClassOf <http://loinc.org/LP7787-7> .
+}""" .
+
+shape:ClasseCodeAttachment a sh:NodeShape;
+  sh:target shape:ClasseCodeAttachment-target;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Classe de Code"@fr;
+  volipi:iconName "fa-thin fa-chart-pie-simple";
+  sh:deactivated true;
+  sh:property shape:ClasseCode_label .
+
+shape:ClasseCodeAttachment-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ # Attachments
+ $this rdfs:subClassOf <http://loinc.org/LP29695-1> .
+}""" .
+
+shape:ClasseCodeSurvey a sh:NodeShape;
+  sh:target shape:ClasseCodeSurvey-target;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Classe de Code"@fr;
+  volipi:iconName "fa-thin fa-chart-pie-simple";
+  sh:deactivated true;
+  sh:property shape:ClasseCode_label .
+
+shape:ClasseCodeSurvey-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ # Survey
+ $this rdfs:subClassOf <http://loinc.org/LP29696-9> .
+}""" .
+
+shape:CodeCollection a sh:NodeShape;
+  sh:target shape:CodeCollection-target;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Collection de Code"@fr;
+  volipi:iconName "fa-thin fa-chart-pie-simple";
+  sh:deactivated true .
+
+shape:CodeCollection-target sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a owl:Class .
+ # 2
+ $this rdfs:subClassOf <http://loinc.org/ontology/core#TermCollection> .
+}""" .
+
+shape:TermIntendedUse a sh:NodeShape;
+  sh:target shape:TermIntendedUse-target;
+  sh:node shape:Metadata;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Type d'utilisation"@fr;
+  volipi:iconName "fa-thin fa-list-dropdown";
+  sh:deactivated true;
+  sh:property shape:TermIntendedUse_label .
+
+shape:TermIntendedUse-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a <http://loinc.org/ontology/core#TermIntendedUse> .
+}""" .
+
+shape:TermStatus a sh:NodeShape;
+  sh:target shape:TermStatus-target;
+  sh:node shape:Metadata;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Statut (terme)"@fr;
+  volipi:iconName "fa-thin fa-list-dropdown";
+  sh:deactivated true;
+  sh:property shape:TermStatus_label .
+
+shape:TermStatus-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a <http://loinc.org/ontology/core#TermStatus> .
+}""" .
+
+shape:PartStatus a sh:NodeShape;
+  sh:target shape:PartStatus-target;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Statut (part)"@fr;
+  volipi:iconName "fa-thin fa-list-dropdown";
+  sh:deactivated true;
+  sh:property shape:PartStatus_label .
+
+shape:PartStatus-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a <http://loinc.org/ontology/core#PartStatus> .
+}""" .
+
+shape:Comparabilite a sh:NodeShape;
+  sh:target shape:Comparabilite-target;
+  sh:node shape:Metadata;
+  sh:nodeKind sh:IRI;
+  rdfs:label "Comparabilité"@fr;
+  volipi:iconName "fa-thin fa-list-dropdown";
+  sh:deactivated true .
+
+shape:Comparabilite-target sh:select """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT $this
+WHERE {
+ $this a <http://data.esante.gouv.fr/ans/loinc/comparabilite-vocabulaire> .
+}""" .
+
+shape:Conversion a sh:NodeShape;
+  sh:nodeKind sh:BlankNode;
+  rdfs:label "Facteur de conversion"@fr;
+  volipi:iconName "fa-thin fa-arrow-down-big-small";
+  sh:deactivated true;
+  sh:property shape:Code_conversionTargetCode, shape:Code_conversionFactor, shape:Code_conversionTargetUnit .
+
+shape:Label a sh:NodeShape;
+  sh:node shape:Metadata;
+  sh:nodeKind sh:Literal;
+  rdfs:label "Libellé"@fr;
+  volipi:iconName "fa-thin fa-message" .
+
+shape:LabelUnclassified a sh:NodeShape;
+  sh:nodeKind sh:Literal;
+  rdfs:label "Libellé"@fr;
+  volipi:iconName "fa-thin fa-message" .
+
+shape:ID a sh:NodeShape;
+  sh:node shape:Metadata;
+  sh:nodeKind sh:Literal;
+  rdfs:label "Identifiant"@fr;
+  volipi:iconName "fa-thin fa-barcode" .
+
+shape:OtherText a sh:NodeShape;
+  sh:node shape:Metadata;
+  sh:nodeKind sh:Literal;
+  rdfs:label "Texte"@fr;
+  volipi:iconName "fa-thin fa-input-text" .
+
+shape:Factor a sh:NodeShape;
+  sh:nodeKind sh:Literal;
+  rdfs:label "Facteur"@fr;
+  volipi:iconName "fa-thin fa-calculator-simple" .
+
+shape:Unit a sh:NodeShape;
+  sh:node shape:Metadata;
+  sh:nodeKind sh:Literal;
+  rdfs:label "Unité"@fr;
+  volipi:iconName "fa-thin fa-weight-hanging" .
+
+shape:UnitUnclassified a sh:NodeShape;
+  sh:nodeKind sh:Literal;
+  rdfs:label "Unité"@fr;
+  volipi:iconName "fa-thin fa-weight-hanging" .
+
+shape:Version a sh:NodeShape;
+  sh:node shape:Metadata;
+  sh:nodeKind sh:Literal;
+  rdfs:label "Version"@fr;
+  volipi:iconName "fa-thin fa-timeline-arrow" .
+
+shape:Code_label_LabelRole a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  sh:node shape:Label;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  sh:deactivated true;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  sh:node shape:Label;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_ORDER_OBS a skos:Concept;
+  sh:path property:ORDER_OBS;
+  sh:name "utilisé pour"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:TermIntendedUse;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_STATUS a skos:Concept;
+  sh:path property:STATUS;
+  sh:name "status"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:TermStatus;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_COMPONENT a skos:Concept;
+  sh:path property:COMPONENT;
+  sh:name "component"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:COMPONENT;
+  dash:searchWidget config-core:AutocompleteProperty;
+  datasources:datasource shape:search_rdfslabel_contains_defaultLang;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_PROPERTY a skos:Concept;
+  sh:path property:PROPERTY;
+  sh:name "property"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:PROPERTY;
+  dash:searchWidget config-core:AutocompleteProperty;
+  datasources:datasource shape:search_rdfslabel_contains_defaultLang;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_TIME_ASPCT a skos:Concept;
+  sh:path property:TIME_ASPCT;
+  sh:name "time"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:TIME;
+  dash:searchWidget config-core:AutocompleteProperty;
+  datasources:datasource shape:search_rdfslabel_contains_defaultLang;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_SYSTEM a skos:Concept;
+  sh:path property:SYSTEM;
+  sh:name "system"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:SYSTEM;
+  dash:searchWidget config-core:AutocompleteProperty;
+  datasources:datasource shape:search_rdfslabel_contains_defaultLang;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_SCALE_TYP a skos:Concept;
+  sh:path property:SCALE_TYP;
+  sh:name "scale"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:SCALE;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_METHOD_TYP a skos:Concept;
+  sh:path property:METHOD_TYP;
+  sh:name "method"@fr, "méthode"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:METHOD;
+  dash:searchWidget config-core:AutocompleteProperty, config-core:ListProperty;
+  datasources:datasource shape:search_rdfslabel_contains_defaultLang;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_notation a skos:Concept;
+  sh:path skos:notation;
+  sh:name "code"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:ID;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_altLabel a skos:Concept;
+  sh:path skos:altLabel;
+  sh:name "synonyme"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:Label;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_subClassOf a skos:Concept;
+  sh:path rdfs:subClassOf;
+  sh:name "collection"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:CodeCollection;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang_with_range;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_definition a skos:Concept;
+  sh:path skos:definition;
+  sh:name "définition"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:OtherText;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_FORMULA a skos:Concept;
+  sh:path property:FORMULA;
+  sh:name "formule"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:OtherText;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_comparabilite a skos:Concept;
+  sh:path loinc-fr:comparabilite;
+  sh:name "comparabilité"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:Comparabilite;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang_with_range;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_conversion a skos:Concept;
+  sh:path ans-core:conversion;
+  sh:name "convertible en"@fr;
+  sh:nodeKind sh:BNode;
+  sh:node shape:Conversion;
+  dash:searchWidget config-core:NonSelectableProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_SURVEY_QUEST_TEXT a skos:Concept;
+  sh:path property:SURVEY_QUEST_TEXT;
+  sh:name "texte de la question"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:OtherText;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_SURVEY_QUEST_SRC a skos:Concept;
+  sh:path property:SURVEY_QUEST_SRC;
+  sh:name "source du questionnaire"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:OtherText;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_VersionFirstReleased a skos:Concept;
+  sh:path property:VersionFirstReleased;
+  sh:name "version de création"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:Version;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_VersionLastChanged a skos:Concept;
+  sh:path property:VersionLastChanged;
+  sh:name "version de dernière modification"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:Version;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_MAP-TO a skos:Concept;
+  sh:path property:MAP-TO;
+  sh:name "code(s) LOINC correspondant(s)"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:Code;
+  dash:searchWidget config-core:AutocompleteProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_STATUS_TEXT a skos:Concept;
+  sh:path property:STATUS_TEXT;
+  sh:name "explication du statut"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:OtherText;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_unite-recommandee a skos:Concept;
+  sh:path loinc-fr:unite-recommandee;
+  sh:name "unité recommandée (Circuit Biologie)"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:Unit;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_unite-ucum a skos:Concept;
+  sh:path loinc-fr:unite-ucum;
+  sh:name "unité UCUM (Circuit Biologie)"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:Unit;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_answer-list a skos:Concept;
+  sh:path property:answer-list;
+  sh:name "liste de réponses"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:AnswerList;
+  dash:searchWidget config-core:ListProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_EXMPL_ANSWERS a skos:Concept;
+  sh:path property:EXMPL_ANSWERS;
+  sh:name "exemple de réponses"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:OtherText;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_EXTERNAL_COPYRIGHT_NOTICE a skos:Concept;
+  sh:path property:EXTERNAL_COPYRIGHT_NOTICE;
+  sh:name "copyright"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:OtherText;
+  dash:searchWidget config-core:SearchProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_EXTERNAL_COPYRIGHT_LINK a skos:Concept;
+  sh:path property:EXTERNAL_COPYRIGHT_LINK;
+  sh:name "auteur"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:OtherText;
+  dash:searchWidget config-core:ListProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:AnswerList_Answer a skos:Concept;
+  sh:path property:Answer;
+  sh:name "answer"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:Answer;
+  dash:searchWidget config-core:NonSelectableProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:AnswerList_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  sh:node shape:LabelUnclassified;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Answer_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  sh:node shape:LabelUnclassified;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:CodeLaboratory_subClassOf a skos:Concept;
+  sh:path rdfs:subClassOf;
+  sh:name "Classe du code"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:ClasseCodeLaboratory;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang_with_range;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:CodeClinical_subClassOf a skos:Concept;
+  sh:path rdfs:subClassOf;
+  sh:name "Classe du code"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:ClasseCodeClinical;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang_with_range;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:CodeAttachment_subClassOf a skos:Concept;
+  sh:path rdfs:subClassOf;
+  sh:name "Classe du code"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:ClasseCodeAttachment;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang_with_range;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:CodeSurvey_subClassOf a skos:Concept;
+  sh:path rdfs:subClassOf;
+  sh:name "Classe du code"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:ClasseCodeSurvey;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang_with_range;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Part_status a skos:Concept;
+  sh:path property:status;
+  sh:name "status"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:PartStatus;
+  dash:searchWidget config-core:ListProperty;
+  datasources:datasource shape:list_rdfslabel_alpha_defaultLang;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:COMPONENT_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:node shape:LabelUnclassified;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:PROPERTY_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:node shape:LabelUnclassified;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:TIME_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:node shape:LabelUnclassified;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:SYSTEM_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:node shape:LabelUnclassified;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:SCALE_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:node shape:LabelUnclassified;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:METHOD_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:node shape:LabelUnclassified;
+  dash:searchWidget config-core:SearchProperty;
+  dash:propertyRole dash:LabelRole;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:ClasseCode_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "Libellé"@fr;
+  sh:nodeKind sh:Literal;
+  dash:propertyRole dash:LabelRole;
+  sh:deactivated true;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:TermIntendedUse_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "Libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  dash:propertyRole dash:LabelRole;
+  sh:deactivated true;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:TermStatus_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "Libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  dash:propertyRole dash:LabelRole;
+  sh:deactivated true;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:PartStatus_label a skos:Concept;
+  sh:path rdfs:label;
+  sh:name "Libellé"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype rdf:langString;
+  dash:propertyRole dash:LabelRole;
+  sh:deactivated true;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_conversionTargetCode a skos:Concept;
+  sh:path ans-core:conversionTargetCode;
+  sh:name "convertible vers"@fr;
+  sh:nodeKind sh:IRI;
+  sh:node shape:Code;
+  dash:searchWidget config-core:AutocompleteProperty;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_conversionFactor a skos:Concept;
+  sh:path ans-core:conversionFactor;
+  sh:name "facteur"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:float;
+  sh:node shape:Factor;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:Code_conversionTargetUnit a skos:Concept;
+  sh:path ans-core:conversionTargetUnit;
+  sh:name "unité"@fr;
+  sh:nodeKind sh:Literal;
+  sh:datatype xsd:string;
+  sh:node shape:UnitUnclassified;
+  skos:inScheme <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl>;
+  skos:topConceptOf <https://sparna-git.github.io/sparnatural-loinc/configs/sparnatural-config.ttl> .
+
+shape:list_rdfslabel_alpha_defaultLang a datasources:SparqlDatasource;
+  datasources:queryTemplate shape:query_list_label_alpha_defaultLang;
+  datasources:labelProperty rdfs:label .
+
+shape:list_rdfslabel_alpha_defaultLang_with_range a datasources:SparqlDatasource;
+  datasources:queryTemplate shape:query_list_label_alpha_defaultLang_with_range;
+  datasources:labelProperty rdfs:label .
+
+shape:search_rdfslabel_contains_defaultLang a datasources:SparqlDatasource;
+  datasources:queryTemplate shape:query_search_label_contains_defaultLang;
+  datasources:labelProperty rdfs:label .
+
+shape:query_list_label_alpha_defaultLang a datasources:SPARQLQuery;
+  datasources:queryString """SELECT DISTINCT ?uri ?label
+WHERE {
+ ?domain $type $domain .
+ ?domain $property ?uri .
+ OPTIONAL { ?uri $labelPath ?labelLang . FILTER(lang(?labelLang) = $lang) }
+ OPTIONAL { ?uri $labelPath ?labelDefaultLang . FILTER(lang(?labelDefaultLang) = $defaultLang) }
+ OPTIONAL { ?uri $labelPath ?labelNoLang . FILTER(lang(?labelNoLang) = \"\") }
+ BIND(COALESCE(?labelLang, ?labelDefaultLang, ?labelNoLang) AS ?label)
+ FILTER(isIRI(?uri))
+}
+ORDER BY UCASE(STR(?label))
+LIMIT 500""" .
+
+shape:query_list_label_alpha_defaultLang_with_range a datasources:SPARQLQuery;
+  datasources:queryString """SELECT DISTINCT ?uri ?label
+WHERE {
+ ?domain $type $domain .
+ ?domain $property ?uri .
+ ?uri a $range .
+ OPTIONAL { ?uri $labelPath ?labelLang . FILTER(lang(?labelLang) = $lang) }
+ OPTIONAL { ?uri $labelPath ?labelDefaultLang . FILTER(lang(?labelDefaultLang) = $defaultLang) }
+ OPTIONAL { ?uri $labelPath ?labelNoLang . FILTER(lang(?labelNoLang) = \"\") }
+ BIND(COALESCE(?labelLang, ?labelDefaultLang, ?labelNoLang) AS ?label)
+ FILTER(isIRI(?uri))
+}
+ORDER BY UCASE(STR(?label))
+LIMIT 500""" .
+
+shape:query_search_label_contains_defaultLang a datasources:SPARQLQuery;
+  datasources:queryString """SELECT DISTINCT ?uri ?label
+WHERE {
+ ?domain $type $domain .
+ ?domain $property ?uri .
+ ?uri $type $range .
+ ?uri $labelPath ?label . FILTER(lang(?label) = '' || lang(?label) = $lang || lang(?label) = $defaultLang)
+ FILTER(isIRI(?uri))
+ FILTER(CONTAINS(LCASE(STR(?label)), LCASE(\"$key\"))) 
+ BIND( IF( STRSTARTS(LCASE(STR(?label)), LCASE(\"$key\")),0,9 ) AS ?starts )
+} 
+ORDER BY ?starts UCASE(STR(?label))
+LIMIT 15""" .
+
+config-core:ListProperty config-core:AutocompleteProperty config-core:ListProperty;
+  datasources:list_URI_alpha datasources:list_URI_count;
+  datasources:query_list_URI_alpha datasources:query_list_URI_count .
+
+config-core:TimeProperty-Date config-core:AutocompleteProperty config-core:TimeProperty-Date;
+  datasources:list_URI_alpha datasources:list_dctermstitle_alpha;
+  datasources:query_list_URI_alpha datasources:query_list_label_alpha .
+
+config-core:TimeProperty-Year config-core:AutocompleteProperty config-core:TimeProperty-Year;
+  datasources:list_URI_alpha datasources:list_dctermstitle_count;
+  datasources:query_list_URI_alpha datasources:query_list_label_count .
+
+config-core:SearchProperty config-core:AutocompleteProperty config-core:SearchProperty;
+  datasources:list_URI_alpha datasources:list_dctermstitle_alpha_with_count;
+  datasources:query_list_URI_alpha datasources:query_list_label_alpha_with_count .
+
+config-core:GraphDBSearchProperty config-core:AutocompleteProperty config-core:GraphDBSearchProperty;
+  datasources:list_URI_alpha datasources:list_foafname_alpha;
+  datasources:query_list_URI_alpha datasources:query_literal_list_alpha .
+
+config-core:NonSelectableProperty config-core:AutocompleteProperty config-core:NonSelectableProperty;
+  datasources:list_URI_alpha datasources:list_foafname_count;
+  datasources:query_list_URI_alpha datasources:query_search_URI_contains .
+
+config-core:LiteralListProperty config-core:AutocompleteProperty config-core:LiteralListProperty;
+  datasources:list_URI_alpha datasources:list_foafname_alpha_with_count;
+  datasources:query_list_URI_alpha datasources:query_search_label_bifcontains .
+
+config-core:BooleanProperty config-core:AutocompleteProperty config-core:BooleanProperty;
+  datasources:list_URI_alpha datasources:list_rdfslabel_alpha;
+  datasources:query_list_URI_alpha datasources:query_search_label_contains .
+
+config-core:StringEqualsProperty config-core:AutocompleteProperty config-core:StringEqualsProperty;
+  datasources:list_URI_alpha datasources:list_rdfslabel_count;
+  datasources:query_list_URI_alpha datasources:query_search_label_strstarts .
+
+config-core:TreeProperty config-core:AutocompleteProperty config-core:TreeProperty;
+  datasources:list_URI_alpha datasources:list_rdfslabel_alpha_with_count;
+  datasources:query_list_URI_alpha datasources:query_list_number_count .
+
+datasources:list_schemaname_alpha datasources:list_URI_alpha datasources:list_schemaname_alpha .
+
+datasources:list_schemaname_count datasources:list_URI_alpha datasources:list_schemaname_count .
+
+datasources:list_schemaname_alpha_with_count datasources:list_URI_alpha datasources:list_schemaname_alpha_with_count .
+
+datasources:list_skospreflabel_alpha datasources:list_URI_alpha datasources:list_skospreflabel_alpha .
+
+datasources:list_skospreflabel_count datasources:list_URI_alpha datasources:list_skospreflabel_count .
+
+datasources:list_skospreflabel_alpha_with_count datasources:list_URI_alpha datasources:list_skospreflabel_alpha_with_count .
+
+datasources:search_URI_contains datasources:list_URI_alpha datasources:search_URI_contains .
+
+datasources:search_dctermstitle_bifcontains datasources:list_URI_alpha datasources:search_dctermstitle_bifcontains .
+
+datasources:search_dctermstitle_contains datasources:list_URI_alpha datasources:search_dctermstitle_contains .
+
+datasources:search_dctermstitle_strstarts datasources:list_URI_alpha datasources:search_dctermstitle_strstarts .
+
+datasources:search_foafname_bifcontains datasources:list_URI_alpha datasources:search_foafname_bifcontains .
+
+datasources:search_foafname_contains datasources:list_URI_alpha datasources:search_foafname_contains .
+
+datasources:search_foafname_strstarts datasources:list_URI_alpha datasources:search_foafname_strstarts .
+
+datasources:search_rdfslabel_bifcontains datasources:list_URI_alpha datasources:search_rdfslabel_bifcontains .
+
+datasources:search_rdfslabel_contains datasources:list_URI_alpha datasources:search_rdfslabel_contains .
+
+datasources:search_rdfslabel_strstarts datasources:list_URI_alpha datasources:search_rdfslabel_strstarts .
+
+datasources:search_schemaname_bifcontains datasources:list_URI_alpha datasources:search_schemaname_bifcontains .
+
+datasources:search_schemaname_contains datasources:list_URI_alpha datasources:search_schemaname_contains .
+
+datasources:search_schemaname_strstarts datasources:list_URI_alpha datasources:search_schemaname_strstarts .
+
+datasources:search_skospreflabel_bifcontains datasources:list_URI_alpha datasources:search_skospreflabel_bifcontains .
+
+datasources:search_skospreflabel_contains datasources:list_URI_alpha datasources:search_skospreflabel_contains .
+
+datasources:search_skospreflabel_strstarts datasources:list_URI_alpha datasources:search_skospreflabel_strstarts .
+
+datasources:literal_list_alpha datasources:list_URI_alpha datasources:literal_list_alpha .
+
+datasources:tree_root_skostopconcept datasources:list_URI_alpha datasources:tree_root_skostopconcept .
+
+datasources:tree_root_skostopconcept_with_count datasources:list_URI_alpha datasources:tree_root_skostopconcept_with_count .
+
+datasources:tree_children_skosnarrower datasources:list_URI_alpha datasources:tree_children_skosnarrower .
+
+datasources:tree_children_skosnarrower_with_count datasources:list_URI_alpha datasources:tree_children_skosnarrower_with_count .
